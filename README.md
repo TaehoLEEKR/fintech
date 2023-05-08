@@ -57,7 +57,7 @@ ERD
 ![image](https://user-images.githubusercontent.com/80689135/236788047-a2b66905-1df7-48b4-b106-53ce2e87eb41.png)
 
 
-## TrobleShooting.md
+## [TrobleShooting.md](https://github.com/TaehoLEEKR/fintech/blob/main/TrobleShooting.md)
 
   
   
