@@ -54,7 +54,8 @@
     
     
 ERD
-![image](https://user-images.githubusercontent.com/80689135/236788047-a2b66905-1df7-48b4-b106-53ce2e87eb41.png)
+![image](https://github.com/TaehoLEEKR/fintech/assets/80689135/a02ee871-d302-4f6e-aca2-240831b19160)
+
 
 
 ## [TrobleShooting](https://github.com/TaehoLEEKR/fintech/blob/main/TrobleShooting.md)
