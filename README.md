@@ -54,7 +54,7 @@
     
     
 ERD
-![image](https://github.com/TaehoLEEKR/fintech/assets/80689135/a02ee871-d302-4f6e-aca2-240831b19160)
+![image](https://github.com/TaehoLEEKR/fintech/assets/80689135/9ef2132a-4601-4a3a-9fdd-68e7b045c5b2)
 
 
 
