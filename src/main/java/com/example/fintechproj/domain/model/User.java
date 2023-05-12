@@ -35,6 +35,10 @@ public class User {
     @Column
     private boolean emailVerified;
     @Column
+    private LocalDateTime verificationDt;
+    @Column
+    private String emailVerificationCode;
+    @Column
     private int accountCnt;
 
     public static User from (SignUpForm form){
