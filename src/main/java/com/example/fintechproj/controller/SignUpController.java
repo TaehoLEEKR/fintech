@@ -1,8 +1,6 @@
 package com.example.fintechproj.controller;
 
-import com.example.fintechproj.application.VerificationApplication;
 import com.example.fintechproj.domain.form.SignUpForm;
-import com.example.fintechproj.domain.model.User;
 import com.example.fintechproj.service.VerificationSignUpService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +20,11 @@ public class SignUpController {
     }
     @PostMapping
     public ResponseEntity<String> signUpUser(@RequestBody SignUpForm form){ // 회원가입 주소 링크
-        return ResponseEntity.ok(verificationSignUpService.verificationSignup(form));
+        boolean success =  verificationSignUpService.verificationSignup(form);
+        if(!success){
+            return ResponseEntity.ok("회원가입에 실패하였습니다.");
+        }
+        return ResponseEntity.ok("회원가입에 성공 하였습니다.");
     }
 
 }

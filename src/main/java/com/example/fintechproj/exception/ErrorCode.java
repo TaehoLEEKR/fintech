@@ -16,7 +16,10 @@ public enum ErrorCode {
     ALREADY_EMAIL_VERIFY(HttpStatus.BAD_REQUEST,"이미 이메일 인증하였습니다."),
     WRONG_VERIFICATION_CODE(HttpStatus.BAD_REQUEST,"이메일 인증 코드가 불일치 합니다."),
     EXPIRE_CODE(HttpStatus.BAD_REQUEST,"인증코드 유효기간 1일이 만료되었습니다."),
-    ALREADY_EMAIL(HttpStatus.BAD_REQUEST,"이메일이 이미 존재 합니다.");
+    ALREADY_EMAIL(HttpStatus.BAD_REQUEST,"이메일이 이미 존재 합니다."),
+
+    // 로그인
+    LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST,"로그인에 실패 하였습니다.");
 
     private final HttpStatus httpStatus;
     private final String detail;
