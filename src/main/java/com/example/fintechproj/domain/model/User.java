@@ -20,26 +20,17 @@ public class User {
     private Long userId;
     @Column(unique = true)
     private String userEmail;
-    @Column
     private String userPw;
-    @Column
     private String userName;
-    @Column
     private String phone;
-    @Column
     private LocalDateTime ctDate;
-    @Column
     private LocalDateTime dtDate;
-    @Column
     private LocalDateTime mdDate;
-    @Column
     private boolean emailVerified;
-    @Column
     private LocalDateTime verificationDt;
-    @Column
     private String emailVerificationCode;
-    @Column
     private int accountCnt;
+    private String token;
 
     public static User from (SignUpForm form){
         return User.builder()

@@ -1,11 +1,7 @@
 package com.example.fintechproj.service;
 
 import com.example.fintechproj.application.VerificationApplication;
-import com.example.fintechproj.client.MailgunClient;
-import com.example.fintechproj.client.mailgun.SendMailForm;
 import com.example.fintechproj.domain.form.SignUpForm;
-import com.example.fintechproj.domain.model.User;
-import com.example.fintechproj.domain.repository.UserRepository;
 import com.example.fintechproj.exception.ErrorCode;
 import com.example.fintechproj.exception.UserException;
 import lombok.RequiredArgsConstructor;
