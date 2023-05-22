@@ -17,6 +17,7 @@ import javax.persistence.Id;
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long accountId;
     private Long accountNum;
     private String accountName;
     private String accountType;

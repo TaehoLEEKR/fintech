@@ -11,6 +11,7 @@ import com.example.fintechproj.exception.UserException;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -20,6 +21,7 @@ public class CreateAccountApplication {
     private final AccountRepository accountRepository;
     private final UserRepository userRepository;
 
+    @Transactional
     public Account CreateAccount(AccountForm form , String email, String token){
 
 
@@ -39,8 +41,7 @@ public class CreateAccountApplication {
 //                throw new UserException(ErrorCode.ALREADY_ACCOUNT_NUMBER);
 //            }
             Account account = accountRepository.save(Account.from(form));
-            Optional<Account> saving = accountRepository.findByAccountName(form.getAccountName());
-            saving.get().setAccountNum(Long.valueOf(accountNumber));
+            account.setAccountNum(Long.valueOf(accountNumber));
             return account;
         }
     }
