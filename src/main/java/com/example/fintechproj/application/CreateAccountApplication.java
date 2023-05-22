@@ -41,12 +41,14 @@ public class CreateAccountApplication {
 //                throw new UserException(ErrorCode.ALREADY_ACCOUNT_NUMBER);
 //            }
             Account account = accountRepository.save(Account.from(form));
-            account.setAccountNum(Long.valueOf(accountNumber));
+            account.setAccountNum((accountNumber));
+            account.setBalance("1");
             return account;
         }
     }
     public String getRandomAccountNumber(){
-        return "1111" + RandomStringUtils.random(10,false,true);
+        return "1111-" + RandomStringUtils.random(5,false,true)
+                +"-" +RandomStringUtils.random(5,false,true);
     }
 
 
