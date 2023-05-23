@@ -13,11 +13,13 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class CreateAccountApplication {
+public class AccountApplication {
     private final AccountRepository accountRepository;
     private final UserRepository userRepository;
 
@@ -50,6 +52,19 @@ public class CreateAccountApplication {
         return "1111-" + RandomStringUtils.random(5,false,true)
                 +"-" +RandomStringUtils.random(5,false,true);
     }
+
+    public List<Account> AccountListSelect(String accountName){
+        List<Account> accountList= new ArrayList<Account>();
+        Optional<User> user = userRepository.findByUserName(accountName);
+        for (int i = 0; i <user.get().getAccountCnt() ; i++) {
+            accountList.add(accountRepository.findByAccountName(accountName).get(i));
+        }
+        return accountList;
+    }
+    public String BalanceListSelect(String accountNum){
+        return accountRepository.findByAccountNum(accountNum).get().getBalance();
+    }
+
 
 
 }

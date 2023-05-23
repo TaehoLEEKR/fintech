@@ -22,9 +22,12 @@ public enum ErrorCode {
     // 로그인
     LOGIN_CHECK_FAIL(HttpStatus.BAD_REQUEST,"로그인에 실패 하였습니다."),
 
-    // 계좌 생성
+    // 계좌
     FULL_ACCOUNT_HAVING(HttpStatus.BAD_REQUEST,"가질수 있는 계좌 3개를 초과 하였습니다."),
-    ALREADY_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"이미 계좌번호가 존재합니다.");
+    ALREADY_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"이미 계좌번호가 존재합니다."),
+    NOT_HAVING_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"계좌번호가 존재하지 않습니다.");
+
+    //
 
     private final HttpStatus httpStatus;
     private final String detail;

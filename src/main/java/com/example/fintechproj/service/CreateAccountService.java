@@ -1,10 +1,8 @@
 package com.example.fintechproj.service;
 
-import com.example.fintechproj.application.CreateAccountApplication;
+import com.example.fintechproj.application.AccountApplication;
 import com.example.fintechproj.domain.form.AccountForm;
 import com.example.fintechproj.domain.model.Account;
-import com.example.fintechproj.domain.model.User;
-import com.example.fintechproj.domain.repository.AccountRepository;
 import com.example.fintechproj.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public class CreateAccountService {
 
-    private final CreateAccountApplication createAccountApplication;
+    private final AccountApplication createAccountApplication;
     private final UserRepository userRepository;
     // 계좌 생성
     @Transactional
