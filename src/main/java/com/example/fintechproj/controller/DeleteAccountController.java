@@ -1,15 +1,11 @@
 package com.example.fintechproj.controller;
 
-import com.example.fintechproj.application.AccountApplication;
-import com.example.fintechproj.domain.model.Account;
+
 import com.example.fintechproj.service.DeleteAccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/del")
@@ -17,9 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class DeleteAccountController {
 
     private final DeleteAccountService deleteAccountService;
-    @DeleteMapping("/account")
-    public ResponseEntity<Account> deleteAccount(@RequestParam String accountNum){
-        deleteAccountService.deleteAccount(accountNum);
-        return ResponseEntity.ok().build();
+    @PostMapping("/account")
+    public ResponseEntity<String> deleteAccount(@RequestParam String accountNum, @RequestParam String email){
+        return ResponseEntity.ok(deleteAccountService.deleteAccount(accountNum,email));
+    }
+    @GetMapping("/user")
+    public ResponseEntity<String> verifyDeleteAccount(@RequestParam String email,@RequestParam String code, @RequestParam String accountNum){
+        deleteAccountService.deleteAccountVerify(email,code,accountNum);
+        return ResponseEntity.ok("계좌 삭제 완료 되었습니다.");
     }
 }
