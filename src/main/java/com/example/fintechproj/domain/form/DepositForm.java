@@ -5,5 +5,6 @@ import lombok.Getter;
 
 @Data
 public class DepositForm {
+    private String accountNum;
     private String dpAmount;
 }

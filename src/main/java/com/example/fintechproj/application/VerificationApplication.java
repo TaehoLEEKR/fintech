@@ -58,7 +58,7 @@ public class VerificationApplication {
         }
     }
     @Transactional
-    public boolean isDeleteVerifyEmail(String email, String accountNum , String code){
+    public boolean isDeleteVerifyEmail(String email, String code , String accountNum){
         Account account = accountRepository.findByAccountNum(accountNum)
                 .orElseThrow(()-> new UserException(ErrorCode.NOT_HAVING_ACCOUNT_NUMBER));
         User user = userRepository.findByUserEmail(email).orElseThrow(
@@ -70,10 +70,8 @@ public class VerificationApplication {
         }else if(!user.getEmailVerificationCode().equals(code)){
             // 인증코드 불일치시 에러
             throw new UserException(ErrorCode.WRONG_VERIFICATION_CODE);
-        }else if(user.getVerificationDt().isBefore(LocalDateTime.now())){
-            // 인증코드 유효기간 1일 만료시 에러
-            throw new UserException(ErrorCode.EXPIRE_CODE);
-        }else{
+        }
+        else{
             // 통과 시 True
             account.setDtEmailVerified(true);
             return true;

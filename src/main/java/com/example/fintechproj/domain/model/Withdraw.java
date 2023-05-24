@@ -19,9 +19,12 @@ public class Withdraw {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long withdrawId;
+    private String accountNum;
     private String wdAmount;
     public static Withdraw from(WithdrawForm form){
-        return Withdraw.builder().wdAmount(form.getWdAmount()).build();
+        return Withdraw.builder()
+                .accountNum(form.getAccountNum())
+                .wdAmount(form.getWdAmount()).build();
     }
 
 }

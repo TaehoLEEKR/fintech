@@ -19,9 +19,13 @@ public class Deposit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long depositId;
+
+    private String accountNum;
     private String dpAmount;
 
     public static Deposit from(DepositForm form){
-        return Deposit.builder().dpAmount(form.getDpAmount()).build();
+        return Deposit.builder()
+                .accountNum(form.getAccountNum())
+                .dpAmount(form.getDpAmount()).build();
     }
 }

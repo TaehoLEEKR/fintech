@@ -25,8 +25,9 @@ public class DeleteAccountService {
     @Transactional
     public String deleteAccount(String accountNum, String email){
         Optional<User> user = userRepository.findByUserEmail(email);
-        Account account = accountRepository.findByAccountNum(accountNum)
-                .orElseThrow(()-> new UserException(ErrorCode.NOT_HAVING_ACCOUNT_NUMBER));
+
+        accountRepository.findByAccountNum(accountNum) .orElseThrow(()-> new UserException(ErrorCode.NOT_HAVING_ACCOUNT_NUMBER));
+
         return verificationApplication.sendDeleteEmailVerification(email ,user.get().getUserName(),accountNum);
 
     }
