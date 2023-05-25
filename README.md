@@ -35,10 +35,10 @@
       
 * ## 송금
 
-  - [ ] 계좌 송금
+  - [x] 계좌 송금
       + 사용자가 수취인 계좌에 송금할수 있어야함
       + 수취인 계좌 송금시 송금자가 0원이하 or 소유 금액 보다 많은 금액 송금시 (잔액부족) 경고 출력
-  - [ ] 계좌 송금 이력조회
+  - [x] 계좌 송금 이력조회
       + 송금시 ( 송금 계좌번호 , 수취인 이름 , 송금 금액 , 송금 날짜 ) 이력 생성 필요
   
 * ## 추가 기능 구현
@@ -55,7 +55,7 @@
     
     
 ERD
-![image](https://github.com/TaehoLEEKR/fintech/assets/80689135/9ef2132a-4601-4a3a-9fdd-68e7b045c5b2)
+![image](https://github.com/TaehoLEEKR/fintech/assets/80689135/0eb5c51d-af47-4623-8f69-fa23de34e7ca)
 
 
 
