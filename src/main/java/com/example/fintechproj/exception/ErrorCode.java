@@ -27,9 +27,11 @@ public enum ErrorCode {
     ALREADY_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"이미 계좌번호가 존재합니다."),
     WRONG_AMOUNT_MONEY(HttpStatus.BAD_REQUEST,"입금 금액에는 숫자만 입력해주세요."),
     MINUS_BALANCE_MONEY(HttpStatus.BAD_REQUEST,"잔액 부족"),
-    NOT_HAVING_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"계좌번호가 존재하지 않습니다.");
+    NOT_HAVING_ACCOUNT_NUMBER(HttpStatus.BAD_REQUEST,"계좌번호가 존재하지 않습니다."),
 
-    //
+    //송금
+    NULL_DATA_TRANSFER(HttpStatus.BAD_REQUEST,"송금 내역이 없습니다.");
+
 
     private final HttpStatus httpStatus;
     private final String detail;
