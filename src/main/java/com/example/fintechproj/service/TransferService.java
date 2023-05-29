@@ -6,8 +6,13 @@ import com.example.fintechproj.domain.model.Transfer;
 import com.example.fintechproj.domain.repository.AccountRepository;
 import com.example.fintechproj.domain.repository.TransferRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +27,7 @@ public class TransferService {
     }
     public List<String> searchTransferAccountSer(String accountNum){
         List<Transfer> transferList =transferRepository.findBySenderAccountNum(accountNum);
-        List<String> arr = new ArrayList<>();
+
         List<String> lst = new ArrayList<>();
         for (int i = 0; i <transferList.size() ; i++) {
             lst.add(transferList.get(i).getSenderAccountNum());
@@ -33,5 +38,13 @@ public class TransferService {
         
     return lst;
 
+    }
+
+    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Scheduled(cron ="* 10 * * * *") // 10분만다 주기
+    public void bookingTransferAccount(TransferForm form , LocalDate date){
+        if(date.isEqual(LocalDate.now())){
+            transferApplication.transferFunction(form);
+        }
     }
 }

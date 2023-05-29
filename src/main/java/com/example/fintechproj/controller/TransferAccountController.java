@@ -6,9 +6,12 @@ import com.example.fintechproj.exception.ErrorCode;
 import com.example.fintechproj.exception.UserException;
 import com.example.fintechproj.service.TransferService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -30,4 +33,12 @@ public class TransferAccountController {
             return ResponseEntity.ok(lst);
         }
     }
+    @PostMapping("/resevation")
+    public ResponseEntity<String> reservationTransferAccountControl(@RequestBody TransferForm form
+            , @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate bookingDate)
+    {
+        transferService.bookingTransferAccount(form, bookingDate);
+        return ResponseEntity.ok("에약 송금이 설정 되었습니다.");
+    }
+
 }
