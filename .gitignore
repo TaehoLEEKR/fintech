@@ -4,7 +4,8 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
-
+src/main/java/com/example/fintechproj/client
+src/main/java/com/example/fintechproj/config/FeignConfig.java
 ### STS ###
 .apt_generated
 .classpath
