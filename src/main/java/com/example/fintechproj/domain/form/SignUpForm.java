@@ -1,14 +1,8 @@
 package com.example.fintechproj.domain.form;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Getter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class SignUpForm {
     private String userEmail;
     private String userName;
